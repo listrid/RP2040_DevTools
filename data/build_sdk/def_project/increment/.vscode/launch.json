@@ -1,0 +1,63 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug (OpenOCD)",
+            "type": "cortex-debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/${input:name_d}",
+            "request": "launch",
+            "servertype": "openocd",
+            "gdbPath" : "${env:RP2040_SDK}bin/arm-none-eabi-gdb.exe",
+            "device": "RP2040",
+            "configFiles": [ "board/pico-debug.cfg" ],
+            "searchDir": [ "${env:RP2040_SDK}bin/scripts" ],
+            "svdFile": "${env:RP2040_SDK}rp2040.svd",
+            "runToEntryPoint": "main",
+            // Work around for stopping at main on restart
+            "postRestartCommands": [
+                "break main",
+                "continue"
+            ],
+            "preLaunchTask": "Build Debug"
+        },
+        {
+            "name": "Release (OpenOCD)",
+            "type": "cortex-debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/${input:name_r}",
+            "request": "launch",
+            "servertype": "openocd",
+            "gdbPath" : "${env:RP2040_SDK}bin/arm-none-eabi-gdb.exe",
+            "device": "RP2040",
+            "configFiles": [ "board/pico-debug.cfg" ],
+            "searchDir": [ "${env:RP2040_SDK}bin/scripts" ],
+            "svdFile": "${env:RP2040_SDK}rp2040.svd",
+            // Work around for stopping at main on restart
+            "postRestartCommands": [ "continue" ],
+            "preLaunchTask": "Build Release"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "name_d",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "${env:RP2040_SDK}bin/make.exe debug name",
+                "cwd": "${workspaceFolder}",
+                "useFirstResult": true
+            }
+        },
+        {
+            "id": "name_r",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "${env:RP2040_SDK}bin/make.exe release name",
+                "cwd": "${workspaceFolder}",
+                "useFirstResult": true
+            }
+        }
+    ]
+}

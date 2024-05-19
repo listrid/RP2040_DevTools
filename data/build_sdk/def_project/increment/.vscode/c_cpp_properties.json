@@ -1,0 +1,33 @@
+{
+    "configurations": [
+        {
+            "name": "ARM",
+            "includePath": [
+                "${workspaceRoot}/src",
+                "${env:RP2040_SDK}include",
+                "${env:RP2040_SDK}arm-none-eabi/include",
+                "${env:RP2040_SDK}lib/gcc/arm-none-eabi/10.3.1/include"
+            ],
+            "defines": [
+                "NDEBUG",
+                "UNICODE",
+                "__GNUC__=6",
+                "__cdecl=__attribute__((__cdecl__))"
+            ],
+            "intelliSenseMode": "gcc-arm",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}",
+                    "${workspaceRoot}/src",
+                    "${env:RP2040_SDK}include",
+                    "${env:RP2040_SDK}arm-none-eabi/include",
+                    "${env:RP2040_SDK}lib/gcc/arm-none-eabi/10.3.1/include"
+                ]
+            },
+            "cStandard": "c99",
+            "cppStandard": "c++17",
+            "compilerPath": "${env:RP2040_SDK}bin/arm-none-eabi-g++.exe"
+        }
+    ],
+    "version": 4
+}

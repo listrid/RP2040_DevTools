@@ -1,0 +1,133 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Release",
+            "type": "shell",
+            "command": "${env:RP2040_SDK}bin/make.exe",
+            "args": [
+                "release"
+            ],
+            "options": {
+                "env": {
+                    "RP2040_SDK": "${env:RP2040_SDK}"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "clear": true
+            },
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Build Debug",
+            "type": "shell",
+            "command": "${env:RP2040_SDK}bin/make.exe",
+            "args": [
+                "debug"
+            ],
+            "options": {
+                "env": {
+                    "RP2040_SDK": "${env:RP2040_SDK}"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "clear": true
+            },
+            "group": {
+                "isDefault": true,
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Build PIO",
+            "type": "shell",
+            "command": "${env:RP2040_SDK}bin/make.exe",
+            "args": [
+                "pio"
+            ],
+            "options": {
+                "env": {
+                    "RP2040_SDK": "${env:RP2040_SDK}"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "clear": true
+            },
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": [
+                "${env:RP2040_SDK}bin/make.exe release clean;",
+                "${env:RP2040_SDK}bin/make.exe debug clean"
+            ],
+            "options": {
+                "env": {
+                    "RP2040_SDK": "${env:RP2040_SDK}"
+                }
+            },
+            "presentation": {
+                "clear": true
+            },
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Pico Write",
+            "type": "shell",
+            "command": [
+                "${env:RP2040_SDK}bin/picotool.exe reboot -f -u;timeout 1;",
+                "${env:RP2040_SDK}bin/make.exe release ; ",
+                "${env:RP2040_SDK}bin/picotool.exe load -x \"${workspaceRoot}/${input:name_r_uf2}\";"
+            ],
+            "options": {
+                "env": {
+                    "RP2040_SDK": "${env:RP2040_SDK}"
+                }
+            },
+            "presentation": {
+                "clear": true
+            },
+            "group": {
+                "kind": "build"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "name_d",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "${env:RP2040_SDK}bin/make.exe debug name_uf2",
+                "cwd": "${workspaceFolder}",
+                "useFirstResult": true
+            }
+        },
+        {
+            "id": "name_r_uf2",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "${env:RP2040_SDK}bin/make.exe release name_uf2",
+                "cwd": "${workspaceFolder}",
+                "useFirstResult": true
+            }
+        }
+    ]
+}

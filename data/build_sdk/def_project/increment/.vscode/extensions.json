@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"ms-vscode.cpptools-extension-pack",
+		"ms-vscode.cpptools",
+		"ms-vscode.cpptools-themes",
+        "ms-vscode.vscode-serial-monitor",
+		"marus25.cortex-debug",
+		"mcu-debug.peripheral-viewer",
+        "augustocdias.tasks-shell-input",
+        "spmeesseman.vscode-taskexplorer"
+	]
+}

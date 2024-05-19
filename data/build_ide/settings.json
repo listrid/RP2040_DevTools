@@ -1,0 +1,15 @@
+{
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
+    "workbench.colorTheme": "Default Light Modern",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "cmake.showOptionsMovedNotification": false,
+    "cortex-debug.enableTelemetry": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "telemetry.telemetryLevel": "off",
+    "memory-view.showMemoryPanel": false,
+    "extensions.ignoreRecommendations": true
+}

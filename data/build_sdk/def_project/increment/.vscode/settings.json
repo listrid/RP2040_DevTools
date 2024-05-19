@@ -1,0 +1,59 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.useTabStops": true,
+    "editor.trimAutoWhitespace": true,
+    "editor.detectIndentation": false,
+    "editor.guides.bracketPairs": true,
+    "editor.fontFamily": "Cascadia Mono",
+    "editor.fontSize": 13,
+    "editor.fontWeight": "normal",
+    "editor.mouseWheelZoom": false,
+    "workbench.colorCustomizations": {
+        "editor.background": "#FEFEFE",
+    },
+    "editor.tokenColorCustomizations": {
+        "types": "#216F85",
+        "variables": "#000080",  
+
+        "numbers": "#2247EB",
+        "comments": "#008000",
+        "functions": "#880000",
+
+        "keywords": "#0000FF",
+        "strings": "#209020",
+        "textMateRules": [
+            {
+                "scope":["keyword.control.directive.include"],
+                "settings": {
+                    "foreground": "#d8391d"
+                }
+            },{
+                "scope":["keyword.control.directive", "entity.name.function.preprocessor"],
+                "settings": {
+                    "foreground": "#6F008A"
+                }
+            },{
+                "scope":["variable.parameter"],
+                "settings": {
+                    "foreground": "#0000B0",
+                    "fontStyle": "italic"
+                }
+            }
+            //,{"scope":["keyword.other.unit.hexadecimal.cpp"], "settings": { "foreground": "#2247EB"}}
+        ]
+    },
+    "cmake.configureOnOpen": true,
+    "cortex-debug.variableUseNaturalFormat": true,
+    "taskExplorer.clickAction": "Execute",
+    "taskExplorer.exclude": [
+        "**/.vscode-test/**", 
+        "*/.vscode/tasks.json"
+    ],
+    "taskExplorer.showLastTasks": false,
+    "taskExplorer.numLastTasks": 1,
+    "taskExplorer.pathToPrograms": {
+        "make": "${env:RP2040_SDK}bin/make.exe"
+     },
+    "cortex-debug.openocdPath": "${env:RP2040_SDK}bin/openocd.exe"
+}
