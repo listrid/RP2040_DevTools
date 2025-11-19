@@ -4,7 +4,7 @@ if not exist .\build\ mkdir .\build
 cd .\build
 
 if exist .\pico-sdk\ goto ok_sdk
-git clone --depth=1 --no-single-branch --shallow-submodules -b master https://github.com/raspberrypi/pico-sdk.git
+git clone --depth=1 --no-single-branch --shallow-submodules -b 1.5.1  https://github.com/raspberrypi/pico-sdk.git
 cd pico-sdk
 git submodule update --init --depth=1 --no-single-branch
 del /S /Q /F .\.git >NUL

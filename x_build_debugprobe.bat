@@ -8,7 +8,7 @@ call .\pico-sdk\SetEnv.bat
 SET CMAKE_BUILD_TYPE=MinSizeRel
 
 if exist .\debugprobe\ goto ok
-git clone  --depth=1 --no-single-branch https://github.com/raspberrypi/debugprobe
+git clone  --depth=1 --no-single-branch -b debugprobe-v2.0.1 https://github.com/raspberrypi/debugprobe
 cd debugprobe
 git submodule update --init --depth=1 --no-single-branch
 cd ..

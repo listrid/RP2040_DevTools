@@ -60,9 +60,9 @@ endif
 
 ifeq ($(init_build),yes)
 # !!(parameters without a space  ./src/,*.cpp )
-  sources_cpp = $(subst $(source_dir),,$(call rwildcard, $(source_dir),*.cpp))
-  sources_c   = $(subst $(source_dir),,$(call rwildcard, $(source_dir),*.c))
-  sources_S   = $(subst $(source_dir),,$(call rwildcard, $(source_dir),*.S))
+  sources_cpp = $(subst $(source_dir),,$(call rwildcard, $(source_dir)/,*.cpp))
+  sources_c   = $(subst $(source_dir),,$(call rwildcard, $(source_dir)/,*.c))
+  sources_S   = $(subst $(source_dir),,$(call rwildcard, $(source_dir)/,*.S))
 
   OBJ_DIRS = $(addprefix $(obj_dir),$(sort $(dir $(sources_cpp)$(sources_c)$(sources_S))))
   OBJECTS  = $(addprefix $(obj_dir),$(sources_cpp:.cpp=.cpp.o) $(sources_c:.c=.c.o) $(sources_S:.S=.S.o))

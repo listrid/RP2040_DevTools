@@ -12,16 +12,15 @@ SET CMAKE_BUILD_TYPE=MinSizeRel
 
 mkdir .\pioasm
 cd pioasm
-cmake -G Ninja ..\..\..\pico-sdk\tools\pioasm
+cmake -G Ninja ..\..\pico-sdk\tools\pioasm
 Ninja
 cd ..
 
 mkdir .\elf2uf2
 cd elf2uf2
-cmake -G Ninja ..\..\..\pico-sdk\tools\elf2uf2
+cmake -G Ninja ..\..\pico-sdk\tools\elf2uf2
 Ninja
 cd ..
-
-rem copy .\elf2uf2\elf2uf2.exe .\soft\bin\elf2uf2.exe
-rem copy .\pioasm\pioasm.exe   .\soft\bin\pioasm.exe
+copy .\elf2uf2\elf2uf2.exe ..\RP2040_SDK\bin\elf2uf2.exe
+copy .\pioasm\pioasm.exe   ..\RP2040_SDK\bin\pioasm.exe
 pause

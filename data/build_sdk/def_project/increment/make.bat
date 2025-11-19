@@ -1,5 +1,5 @@
 @echo off
-call ..\..\RP2040_SDK\SetEnv.bat
+call %~d0\RP2040_SDK\SetEnv.bat
 
 %RP2040_SDK%bin\picotool.exe reboot -f -u
 

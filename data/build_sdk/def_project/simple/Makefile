@@ -1,7 +1,8 @@
 program_name := blink
 source_dirs  := src
 
-CC := $(RP2040_SDK)bin/arm-none-eabi-g++.exe
+CC  := $(RP2040_SDK)bin/arm-none-eabi-gcc.exe
+CXX := $(RP2040_SDK)bin/arm-none-eabi-g++.exe
 
 .PHONY: .build pio uf2 release debug clean name name_uf2
 
